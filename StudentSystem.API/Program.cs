@@ -1,4 +1,7 @@
 
+using StudentSystem.API.Extensios;
+using StudentSystem.API.Middlewares;
+
 namespace StudentSystem.API
 {
     public class Program
@@ -7,16 +10,27 @@ namespace StudentSystem.API
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services
+                .AddDbContexts(builder.Configuration)
+                .AddAuthentication(builder.Configuration)
+                .AddInfrastructure()
+                .AddApplication()
+                .AddSwagger()
+                .AddCors(options =>
+                {
+                    options.AddPolicy("Any", policyBuilder =>
+                    {
+                        policyBuilder
+                            .AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader()
+                            .Build();
+                    });
+                })
+                .AddControllerMapping();
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -24,10 +38,10 @@ namespace StudentSystem.API
             }
 
             app.UseHttpsRedirection();
-
+            app.UseAuthentication();
             app.UseAuthorization();
-
-
+            app.UseCors("Any");
+            app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
             app.MapControllers();
 
             app.Run();

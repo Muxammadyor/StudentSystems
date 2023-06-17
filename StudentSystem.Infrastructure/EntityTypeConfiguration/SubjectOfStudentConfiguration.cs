@@ -18,8 +18,7 @@ namespace StudentSystem.Infrastructure.EntityTypeConfiguration
             builder
                 .HasOne(ss => ss.Student)
                 .WithMany(ss => ss.SubjectOfStudent)
-                .HasForeignKey(ss => ss.StudentId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.NoAction);
 
 
             builder

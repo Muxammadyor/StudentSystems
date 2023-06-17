@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using StudentSystem.Application.DTO;
+using StudentSystem.Domain.Entities;
 
-namespace StudentSystem.Application.Service.SubjecctOfStudents
+namespace StudentSystem.Application.Service
 {
-    internal class SSFactory
+    public class SSFactory : ISSFactory
     {
+        public SubjectsOfStudents MapToSS(SSCreationDto sSCreationDto)
+        {
+            return new SubjectsOfStudents
+            {
+                StudentId = sSCreationDto.studentId,
+                SubjectsOfTeachersId = sSCreationDto.sTId
+            };
+        }
     }
 }

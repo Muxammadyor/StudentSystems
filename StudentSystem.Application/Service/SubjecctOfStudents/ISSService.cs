@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using StudentSystem.Application.DTO;
+using StudentSystem.Domain.Entities;
 
-namespace StudentSystem.Application.Service.SubjecctOfStudents
+namespace StudentSystem.Application.Service
 {
-    internal interface ISSService
+    public interface ISSService
     {
+        ValueTask<SubjectsOfStudents> CreationSS(SSCreationDto sSCreationDto);
+
     }
 }

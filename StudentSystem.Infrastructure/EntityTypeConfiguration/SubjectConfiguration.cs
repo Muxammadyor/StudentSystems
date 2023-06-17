@@ -20,7 +20,6 @@ namespace StudentSystem.Infrastructure.EntityTypeConfiguration
             builder
                 .HasMany(subject => subject.SubjectsOfTeachers)
                 .WithOne(subject => subject.Subject)
-                .HasForeignKey(subject => subject.SubjectId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

@@ -50,7 +50,7 @@ public sealed class UserConfiguration : IEntityTypeConfiguration<User>
             .HasMany(user => user.SubjectOfStudent) 
             .WithOne(user => user.Student)
             .HasForeignKey(user => user.StudentId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.NoAction);
 
         builder.HasData(GenerateUsers());
     }

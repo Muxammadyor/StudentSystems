@@ -26,10 +26,25 @@ namespace StudentSystem.Infrastructure.Repository
         }
 
 
-        public IQueryable<TEntity> SelectAll(Expression<Func<TEntity, bool>> predicate = null) =>
-            predicate == null ?
-                this.appDbContext.Set<TEntity>() :
-                this.appDbContext.Set<TEntity>().Where(predicate);
+        public IQueryable<TEntity> SelectAll(Expression<Func<TEntity, bool>> predicate = null, string[] includes = null)
+        {
+            IQueryable<TEntity> query = appDbContext.Set<TEntity>();
+
+            if (includes != null)
+            {
+                foreach (string include in includes)
+                {
+                    query = query.Include(include);
+                }
+            }
+
+            if (predicate != null)
+            {
+                query = query.Where(predicate);
+            }
+
+            return query;
+        }
 
 
 

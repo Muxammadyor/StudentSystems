@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentSystem.Application.Service.SubjecctOfStudents
+namespace StudentSystem.Application.Service
 {
     internal class SSService
     {
