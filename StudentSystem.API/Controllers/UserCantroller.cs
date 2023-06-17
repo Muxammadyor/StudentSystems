@@ -37,6 +37,19 @@ public class UsersController : ControllerBase
         return Ok(user);
     }
 
+    [HttpGet("substring")]
+    public async ValueTask<ActionResult<UserDto>> GetUserByIdAsync(
+        string substring)
+    {
+
+        var user = this.userService
+            .RetriveUserBySubString(substring);
+
+        return Ok(user);
+    }
+
+
+
     [HttpGet("{userId:guid}")]
     public async ValueTask<ActionResult<UserDto>> GetUserByIdAsync(
         Guid userId)

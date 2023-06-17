@@ -7,8 +7,8 @@ namespace StudentSystem.Application.Service.SubjectOfTeachers
     {
 
         ValueTask<SubjectsOfTeachers> CreationAsync(STCreationDto sTCreationDto);
-        IQueryable<SubjectsOfTeachers> RetriveBySubjectIdWhithDeteils(Guid subjectId);
-        IQueryable<SubjectsOfTeachers> RetriveByTeacherIdWhithDeteils(Guid teacherId);
+        IQueryable<STDto> RetriveBySubjectIdWhithDeteils(Guid subjectId);
+        IQueryable<STDto> RetriveByTeacherIdWhithDeteils(Guid teacherId);
 
     }
 }

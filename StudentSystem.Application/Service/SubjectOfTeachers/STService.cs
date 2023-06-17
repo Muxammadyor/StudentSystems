@@ -17,7 +17,6 @@ namespace StudentSystem.Application.Service.SubjectOfTeachers
             this.sTFactory = sTFactory;
         }
 
-
         public ValueTask<SubjectsOfTeachers> CreationAsync(STCreationDto sTCreationDto)
         {
             var newSt = sTFactory.MapToST(sTCreationDto);
@@ -27,21 +26,22 @@ namespace StudentSystem.Application.Service.SubjectOfTeachers
             return addST;
         }
 
-        public  IQueryable<SubjectsOfTeachers> RetriveBySubjectIdWhithDeteils(Guid subjectId)
+        public  IQueryable<STDto> RetriveBySubjectIdWhithDeteils(Guid subjectId)
         {
             var storegeSt =  this.sTRepository
                 .SelectAll(st => st.SubjectId==subjectId,
                     includes: new string[] {nameof(SubjectsOfTeachers.Teacher) });
 
-            return storegeSt;
+            return storegeSt.Select(st=> this.sTFactory.MapToSTDto(st));
         }
 
-        public IQueryable<SubjectsOfTeachers> RetriveByTeacherIdWhithDeteils(Guid teacherId)
+        public IQueryable<STDto> RetriveByTeacherIdWhithDeteils(Guid teacherId)
         {
             var storegeSt = this.sTRepository
-                .SelectAll(st => st.TeacherId == teacherId);
+                .SelectAll(st => st.TeacherId == teacherId,
+                 includes: new string[] { nameof(SubjectsOfTeachers.Subject) });
 
-            return storegeSt;
+            return storegeSt.Select(st => this.sTFactory.MapToSTDto(st));
         }
     }
 }

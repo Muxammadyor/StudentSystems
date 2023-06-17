@@ -29,6 +29,16 @@ public partial class UserService : IUserService
         return this.userFactory.MapToUserDto(addedUser);
     }
 
+    public IQueryable<UserDto> RetriveUserBySubString(string subString)
+    {
+        var users = this.userRepository.SelectAll(user => 
+        ((user.FirstName.Contains(subString) || user.LastName.Contains(subString))
+        && user.Role==UserRole.Student));
+
+        return users.Select(user =>
+           this.userFactory.MapToUserDto(user));
+    }
+
 
     public async ValueTask<UserDto> RemoveUserAsync(Guid userId)
     {

@@ -14,11 +14,14 @@ namespace StudentSystem.Infrastructure.EntityTypeConfiguration
 
             builder
                 .HasOne(st => st.Subject)
-                .WithMany(st => st.SubjectsOfTeachers);
+                .WithMany(st => st.SubjectsOfTeachers)
+                .HasForeignKey(st => st.SubjectId);
 
             builder
                 .HasOne(st => st.Teacher)
-                .WithMany(st => st.SubjectsOfTeachers);
+                .WithMany(st => st.SubjectsOfTeachers)
+                .HasForeignKey(st => st.TeacherId);
+            
 
             builder
                 .HasMany(st => st.SubsOfStudents)

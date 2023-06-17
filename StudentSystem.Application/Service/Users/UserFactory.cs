@@ -37,7 +37,7 @@ namespace StudentSystem.Application.Service.Users
 
         public void MapToUser(User storageUser, UserForModificationDto userForCreationDto)
         {
-            throw new NotImplementedException();
+            
         }
 
         public UserDto MapToUserDto(User user)

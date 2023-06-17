@@ -30,6 +30,11 @@ namespace StudentSystem.Infrastructure.Repository
         {
             IQueryable<TEntity> query = appDbContext.Set<TEntity>();
 
+            if (predicate != null)
+            {
+                query = query.Where(predicate);
+            }
+
             if (includes != null)
             {
                 foreach (string include in includes)
@@ -38,10 +43,6 @@ namespace StudentSystem.Infrastructure.Repository
                 }
             }
 
-            if (predicate != null)
-            {
-                query = query.Where(predicate);
-            }
 
             return query;
         }

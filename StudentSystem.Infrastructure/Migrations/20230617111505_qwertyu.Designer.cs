@@ -12,7 +12,7 @@ using StudentSystem.Infrastructure.Contexts;
 namespace StudentSystem.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230617090647_qwertyu")]
+    [Migration("20230617111505_qwertyu")]
     partial class qwertyu
     {
         /// <inheritdoc />
