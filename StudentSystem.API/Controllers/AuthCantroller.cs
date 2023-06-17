@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using StudentSystem.Application.DTO.Authentication;
+using StudentSystem.Application.DTO;
 using StudentSystem.Application.Service.AuthenticationService;
 
 namespace StudentSystem.API.Controllers;

@@ -18,7 +18,7 @@ namespace StudentSystem.Application.Service
             this.sSFactory = sSFactory;
         }
 
-        public async ValueTask<SubjectsOfStudents> CreationSS(SSCreationDto sSCreationDto)
+        public async ValueTask<SubjectsOfStudents> CreationSSAsync(SSCreationDto sSCreationDto)
         {
             var newSS = this.sSFactory.MapToSS(sSCreationDto);
 

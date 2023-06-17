@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using StudentSystem.Application.DTO.Users;
+using StudentSystem.Application.DTO;
 using StudentSystem.Application.Service.Users;
 using StudentSystem.Domain.Enums;
 

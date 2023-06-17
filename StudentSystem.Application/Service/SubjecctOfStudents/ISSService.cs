@@ -6,7 +6,7 @@ namespace StudentSystem.Application.Service
 {
     public interface ISSService
     {
-        ValueTask<SubjectsOfStudents> CreationSS(SSCreationDto sSCreationDto);
+        ValueTask<SubjectsOfStudents> CreationSSAsync(SSCreationDto sSCreationDto);
 
         IQueryable<SSDto> RetriveByStudentId(Guid studentId);
         IQueryable<SSDto> RetriveBySubjectId(Guid subjectId);

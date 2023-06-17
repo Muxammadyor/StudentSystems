@@ -66,6 +66,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<ISubjectRepository, SubjectRepository>();
         services.AddScoped<ISTRepository, STRepository>();
+        services.AddScoped<ISSRepository, SSRepository>();
         services.AddTransient<IJwtTokenHandler, JwtTokenHandler>();
         services.AddSingleton<IPasswordHasher, PasswordHasher>();
         return services;

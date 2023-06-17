@@ -1,13 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using StudentSystem.Application.DTO.SubjectsOfTeachers;
-using StudentSystem.Application.DTO.Users;
+using StudentSystem.Application.DTO;
 using StudentSystem.Application.Service.SubjectOfTeachers;
-using StudentSystem.Application.Service.Users;
 using StudentSystem.Domain.Entities;
 
 namespace StudentSystem.API.Controllers;
 
-[Route("api/SsubjectsOfTeachers")]
+[Route("api/SubjectsOfTeachers")]
 [ApiController]
 public class SubjectsOfTeachersCantroller : ControllerBase
 {
@@ -19,13 +17,13 @@ public class SubjectsOfTeachersCantroller : ControllerBase
     }
 
     [HttpPost]
-    public async ValueTask<ActionResult<UserDto>> PostUserAsync(
+    public async ValueTask<ActionResult<SubjectsOfTeachers>> PostSTAsync(
         STCreationDto sTForCreationDto)
     {
-        var createdUser = await this.sTService
+        var createdST = await this.sTService
             .CreationAsync(sTForCreationDto);
 
-        return Created("", createdUser);
+        return Created("", createdST);
     }
 
     [HttpGet("subjectid")]
@@ -43,8 +41,4 @@ public class SubjectsOfTeachersCantroller : ControllerBase
 
         return Ok(storegST);
     }
-   
-
-
-
 }
