@@ -1,7 +1,7 @@
 ﻿using StudentSystem.Infrastructure.Repository;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using StudentSystem.Application.DTO.Authentication;
+using StudentSystem.Application.DTO;
 using StudentSystem.Domain.Exceptions;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;

@@ -1,4 +1,4 @@
-﻿using StudentSystem.Application.DTO.Users;
+﻿using StudentSystem.Application.DTO;
 using StudentSystem.Domain.Entities;
 
 namespace StudentSystem.Application.Service.Users

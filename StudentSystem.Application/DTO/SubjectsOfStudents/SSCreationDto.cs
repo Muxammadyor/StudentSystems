@@ -3,5 +3,5 @@
     public record SSCreationDto(
     Guid studentId,
     Guid sTId,
-    int mark);
+    int? mark);
 }

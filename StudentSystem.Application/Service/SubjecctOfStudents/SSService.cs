@@ -1,5 +1,6 @@
 ﻿using StudentSystem.Application.DTO;
 using StudentSystem.Application.DTO.SubjectsOfStudents;
+using StudentSystem.Application.DTO;
 using StudentSystem.Domain.Entities;
 using StudentSystem.Infrastructure.Repository;
 
@@ -27,29 +28,50 @@ namespace StudentSystem.Application.Service
             
         }
 
-        public ValueTask<SubjectsOfStudents> ModifySSAsync(SSForModificationDto sSForModificationDto)
+        public async ValueTask<SubjectsOfStudents> ModifySSAsync(SSForModificationDto sSForModificationDto)
         {
-            
+            var storageSS = await this.sSRepository
+            .SelectByIdAsync(sSForModificationDto.id);
+
+            sSFactory.MaptoSS(storageSS, sSForModificationDto);
+
+            return await this.sSRepository.UpdateAsync(storageSS);
         }
 
         public IQueryable<SSDto> RetriveBySTId(Guid stId)
         {
-            throw new NotImplementedException();
+            var storegeSt = this.sSRepository
+                .SelectAll(st => st.Id == stId,
+                    includes: new string[] { nameof(SubjectsOfStudents.SubjectsOfTeachers) });
+
+            return storegeSt.Select(st => this.sSFactory.MapToSSDto(st));
         }
 
         public IQueryable<SSDto> RetriveByStudentId(Guid studentId)
         {
-            throw new NotImplementedException();
+            var storegeSt = this.sSRepository
+                 .SelectAll(st => st.StudentId == studentId,
+                     includes: new string[] { nameof(SubjectsOfStudents.SubjectsOfTeachers) });
+
+            return storegeSt.Select(st => this.sSFactory.MapToSSDto(st));
         }
 
         public IQueryable<SSDto> RetriveBySubjectId(Guid subjectId)
         {
-            throw new NotImplementedException();
+            var storegeSt = this.sSRepository
+                .SelectAll(st => st.SubjectsOfTeachers.SubjectId == subjectId,
+                    includes: new string[] { nameof(SubjectsOfStudents.Student) });
+
+            return storegeSt.Select(st => this.sSFactory.MapToSSDto(st));
         }
 
         public IQueryable<SSDto> RetriveByTeacherId(Guid teacherId)
         {
-            throw new NotImplementedException();
+            var storegeSt = this.sSRepository
+                .SelectAll(st => st.SubjectsOfTeachers.TeacherId == teacherId,
+                    includes: new string[] { nameof(SubjectsOfStudents.Student) });
+
+            return storegeSt.Select(st => this.sSFactory.MapToSSDto(st));
         }
     }
 }

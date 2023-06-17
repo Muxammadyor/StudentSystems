@@ -1,4 +1,4 @@
-﻿namespace StudentSystem.Application.DTO.Authentication;
+﻿namespace StudentSystem.Application.DTO;
 
 public record RefreshTokenDto(
     string accessToken,

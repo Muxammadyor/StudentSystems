@@ -1,7 +1,4 @@
-﻿using StudentSystem.Application.DTO.Subject;
-using StudentSystem.Application.DTO.Users;
-
-namespace StudentSystem.Application.DTO.SubjectsOfTeachers
+﻿namespace StudentSystem.Application.DTO
 {
     public record STDto(
         Guid id,

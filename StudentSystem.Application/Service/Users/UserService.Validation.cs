@@ -1,4 +1,4 @@
-﻿using StudentSystem.Application.DTO.Users;
+﻿using StudentSystem.Application.DTO;
 using StudentSystem.Application.Validation.Users;
 using StudentSystem.Domain.Entities;
 using StudentSystem.Domain.Exceptions;

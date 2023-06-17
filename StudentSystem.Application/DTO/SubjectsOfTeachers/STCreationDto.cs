@@ -1,4 +1,4 @@
-﻿namespace StudentSystem.Application.DTO.SubjectsOfTeachers
+﻿namespace StudentSystem.Application.DTO
 {
     public record STCreationDto(
         Guid subjectId,

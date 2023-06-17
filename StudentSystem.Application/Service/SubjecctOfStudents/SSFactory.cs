@@ -1,8 +1,5 @@
 ﻿using StudentSystem.Application.DTO;
-using StudentSystem.Application.DTO.Subject;
 using StudentSystem.Application.DTO.SubjectsOfStudents;
-using StudentSystem.Application.DTO.SubjectsOfTeachers;
-using StudentSystem.Application.DTO.Users;
 using StudentSystem.Domain.Entities;
 
 namespace StudentSystem.Application.Service
@@ -14,8 +11,16 @@ namespace StudentSystem.Application.Service
             return new SubjectsOfStudents
             {
                 StudentId = sSCreationDto.studentId,
-                SubjectsOfTeachersId = sSCreationDto.sTId
+                SubjectsOfTeachersId = sSCreationDto.sTId,
+                Mark = sSCreationDto.mark ?? 0
             };
+        }
+
+        public void MaptoSS(SubjectsOfStudents subjectsOfStudents, SSForModificationDto sSForModificationDto)
+        {
+            subjectsOfStudents.StudentId = sSForModificationDto.studentId ?? subjectsOfStudents.StudentId;
+            subjectsOfStudents.SubjectsOfTeachersId = sSForModificationDto.ssId ?? subjectsOfStudents.SubjectsOfTeachersId;
+            subjectsOfStudents.Mark = sSForModificationDto.mark ?? subjectsOfStudents.Mark;
         }
 
         public SSDto MapToSSDto(SubjectsOfStudents subjectsOfStudents)

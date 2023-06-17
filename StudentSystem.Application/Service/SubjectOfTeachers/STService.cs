@@ -1,4 +1,4 @@
-﻿using StudentSystem.Application.DTO.SubjectsOfTeachers;
+﻿using StudentSystem.Application.DTO;
 using StudentSystem.Domain.Entities;
 using StudentSystem.Infrastructure.Repository;
 

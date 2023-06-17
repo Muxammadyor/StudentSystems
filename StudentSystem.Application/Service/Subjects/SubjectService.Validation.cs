@@ -1,4 +1,4 @@
-﻿using StudentSystem.Application.DTO.Subject;
+﻿using StudentSystem.Application.DTO;
 using StudentSystem.Application.Validation.Subjects;
 using StudentSystem.Domain.Entities;
 using StudentSystem.Domain.Exceptions;

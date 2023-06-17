@@ -1,4 +1,4 @@
-﻿using StudentSystem.Application.DTO.Authentication;
+﻿using StudentSystem.Application.DTO;
 
 namespace StudentSystem.Application.Service.AuthenticationService;
 

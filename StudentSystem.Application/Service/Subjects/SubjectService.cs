@@ -1,4 +1,4 @@
-﻿using StudentSystem.Application.DTO.Subject;
+﻿using StudentSystem.Application.DTO;
 using StudentSystem.Infrastructure.Repository.Subjects;
 
 namespace StudentSystem.Application.Service.Subjects

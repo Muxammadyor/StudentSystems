@@ -1,5 +1,4 @@
-﻿namespace StudentSystem.Application.DTO.Authentication;
-
+﻿namespace StudentSystem.Application.DTO;
 public record AuthenticationDto(
         string email,
         string password);

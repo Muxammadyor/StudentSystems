@@ -1,6 +1,4 @@
-﻿using StudentSystem.Application.DTO.Subject;
-using StudentSystem.Application.DTO.SubjectsOfTeachers;
-using StudentSystem.Application.DTO.Users;
+﻿using StudentSystem.Application.DTO;
 using StudentSystem.Domain.Entities;
 
 namespace StudentSystem.Application.Service.SubjectOfTeachers

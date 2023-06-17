@@ -3,9 +3,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using StudentSystem.Application.DTO.Subject;
-using StudentSystem.Application.DTO.SubjectsOfTeachers;
-using StudentSystem.Application.Service.AuthenticationService;
+using StudentSystem.Application.DTO;
+using StudentSystem.Application.Service;
 using StudentSystem.Application.Service.SubjectOfTeachers;
 using StudentSystem.Application.Service.Subjects;
 using StudentSystem.Application.Service.Users;
@@ -45,12 +44,16 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<ISubjectService, SubjectService>();
         services.AddScoped<ISTService, STService>();
+        services.AddScoped<ISSService, SSService>();
+
 
         services.AddTransient<ISubjectFactory, SubjectFactory>();
         services.AddTransient<IUserFactory, UserFactory>();
         services.AddTransient<ISTFactory, STFactory>();
+        services.AddTransient<ISSFactory, SSFactory>();
         services.AddValidatorsFromAssemblyContaining<SubjectForCreationDto>();
         services.AddValidatorsFromAssemblyContaining<STCreationDto>();
+        services.AddValidatorsFromAssemblyContaining<SSCreationDto>();
         services.AddValidatorsFromAssemblyContaining<UserForCreationDtoValidator>();
 
         services.AddHttpContextAccessor();

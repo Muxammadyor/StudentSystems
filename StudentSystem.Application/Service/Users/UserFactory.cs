@@ -1,4 +1,4 @@
-﻿using StudentSystem.Application.DTO.Users;
+﻿using StudentSystem.Application.DTO;
 using StudentSystem.Domain.Entities;
 using StudentSystem.Infrastructure.Authentication;
 
@@ -37,7 +37,7 @@ namespace StudentSystem.Application.Service.Users
 
         public void MapToUser(User storageUser, UserForModificationDto userForCreationDto)
         {
-            
+            throw new NotImplementedException();
         }
 
         public UserDto MapToUserDto(User user)

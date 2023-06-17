@@ -2,7 +2,7 @@
 {
     public record SSForModificationDto(
         Guid id,
-        Guid studentId,
-        Guid ssId,
-        int mark);
+        Guid? studentId,
+        Guid? ssId,
+        int? mark);
 }

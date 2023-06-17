@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using StudentSystem.Application.DTO.Subject;
+using StudentSystem.Application.DTO;
 using StudentSystem.Application.Service.Subjects;
 
 namespace StudentSystem.API.Controllers;

@@ -9,5 +9,7 @@ namespace StudentSystem.Application.Service
         SubjectsOfStudents MapToSS(SSCreationDto sSCreationDto);
 
         SSDto MapToSSDto(SubjectsOfStudents subjectsOfStudents);
+
+        void MaptoSS( SubjectsOfStudents subjectsOfStudents, SSForModificationDto sSForModificationDto);
     }
 }

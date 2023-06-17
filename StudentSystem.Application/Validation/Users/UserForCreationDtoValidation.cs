@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using StudentSystem.Application.DTO.Users;
+using StudentSystem.Application.DTO;
 
 namespace StudentSystem.Application.Validation.Users;
 
