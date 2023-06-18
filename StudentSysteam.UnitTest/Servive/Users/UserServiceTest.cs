@@ -5,7 +5,7 @@ using Moq;
 using StudentSystem.Application.Service.Users;
 using StudentSystem.Infrastructure.Repository;
 
-namespace StudentSysteam.UnitTest.Servive.Users
+namespace StudentSystem.UnitTest.Servive.Users
 {
     public partial class UserServiceTests
     {

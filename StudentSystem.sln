@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentSystem.Infrastructur
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentSystem.Application", "StudentSystem.Application\StudentSystem.Application.csproj", "{46C159E7-5A0B-4B8E-8904-2E11319085E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentSysteam.UnitTest", "StudentSysteam.UnitTest\StudentSysteam.UnitTest.csproj", "{33EC2A75-63A2-4360-8A56-7E26E9443356}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentSystem.UnitTest", "StudentSysteam.UnitTest\StudentSystem.UnitTest.csproj", "{33EC2A75-63A2-4360-8A56-7E26E9443356}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

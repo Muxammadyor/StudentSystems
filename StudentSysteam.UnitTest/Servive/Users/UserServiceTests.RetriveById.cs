@@ -6,7 +6,7 @@ using StudentSystem.Domain.Enums;
 using StudentSystem.Domain.Exceptions;
 using StudentSystem.Infrastructure.Repository;
 
-namespace StudentSysteam.UnitTest.Servive.Users
+namespace StudentSystem.UnitTest.Servive.Users
 {
 
     public partial class UserServiceTests
