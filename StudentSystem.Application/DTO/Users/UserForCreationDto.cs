@@ -9,4 +9,4 @@ public record UserForCreationDto(
     string phoneNumber,
     DateTime birthDate,
     string password,
-    UserRole userRole);
+    UserRole userRole );

@@ -1,11 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StudentSystem.Application.DTO;
+using StudentSystem.Application.DTO.SubjectsOfStudents;
 using StudentSystem.Application.Service;
 using StudentSystem.Domain.Entities;
+using System.Data;
 
 namespace StudentSystem.API.Controllers;
 
-[Route("api/SubjectsOfStudents")]
+[Route("api/subjectsofstudents")]
+[Authorize]
 [ApiController]
 public class SubjectsOfStudentsCantroller : ControllerBase
 {
@@ -42,6 +46,14 @@ public class SubjectsOfStudentsCantroller : ControllerBase
         return Ok(storegSS);
     }
 
+    [HttpGet("subjectId")]
+    public IActionResult GetBySubjectId(Guid subjectId)
+    {
+        var storegSS = this.sSService.RetriveBySubjectId(subjectId);
+
+        return Ok(storegSS);
+    }
+
     [HttpGet("id")]
     public IActionResult GetById(Guid id)
     {
@@ -50,6 +62,26 @@ public class SubjectsOfStudentsCantroller : ControllerBase
         return Ok(storegSS);
 
     }
+
+    [HttpGet("mark")]
+    public IActionResult GetByMark(int mark)
+    {
+        var storegSS = this.sSService.RetriveByMark(mark);
+
+        return Ok(storegSS);
+
+    }
+
+
+
+    [HttpPut]
+    public async ValueTask<ActionResult<SubjectsOfStudents>> PutSSAsync(SSForModificationDto sSForModificationDto)
+    {
+        var modifitedSS = await this.sSService.ModifySSAsync(sSForModificationDto);
+
+        return Ok(modifitedSS);
+    }
+
 
     
 }

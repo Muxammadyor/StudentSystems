@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StudentSystem.Application.DTO;
 using StudentSystem.Application.Service.SubjectOfTeachers;
 using StudentSystem.Domain.Entities;
+using System.Data;
 
 namespace StudentSystem.API.Controllers;
 
-[Route("api/SubjectsOfTeachers")]
+[Route("api/subjectsofteachers")]
+[Authorize]
 [ApiController]
 public class SubjectsOfTeachersCantroller : ControllerBase
 {

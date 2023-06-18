@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StudentSystem.Application.DTO;
 using StudentSystem.Application.Service.Users;
 using StudentSystem.Domain.Enums;
+using System.Data;
 
 namespace StudentSystem.API.Controllers;
 
 
 [Route("api/users")]
+[Authorize(Roles = "Admin")]
 [ApiController]
 public class UsersController : ControllerBase
 {
@@ -37,13 +40,68 @@ public class UsersController : ControllerBase
         return Ok(user);
     }
 
-    [HttpGet("substring")]
-    public async ValueTask<ActionResult<UserDto>> GetUserByIdAsync(
+    [HttpGet("substringstudent")]
+    public async ValueTask<ActionResult<UserDto>> GetUserBySubstringStudent(
         string substring)
     {
 
         var user = this.userService
-            .RetriveUserBySubString(substring);
+            .RetriveUserBySubStringStudent(substring);
+
+        return Ok(user);
+    }
+
+    [HttpGet("substringteacher")]
+    public async ValueTask<ActionResult<UserDto>> GetUserBySubstringTeacher(
+        string substring)
+    {
+
+        var user = this.userService
+            .RetriveUserBySubStringTeacher(substring);
+
+        return Ok(user);
+    }
+    
+    [HttpGet("phoneteacher")]
+    public async ValueTask<ActionResult<UserDto>> GetUserByPhoneNumberTeacher(
+        string phoneNumber)
+    {
+
+        var user = this.userService
+            .RetriveUserByPhoneNumberTeacher(phoneNumber);
+
+        return Ok(user);
+    }
+    
+    [HttpGet("phonestudent")]
+    public async ValueTask<ActionResult<UserDto>> GetUserByPhoneNumberStudent(
+        string phoneNumber)
+    {
+
+        var user = this.userService
+            .RetriveUserByPhoneNumberStudent(phoneNumber);
+
+        return Ok(user);
+    }
+
+    [HttpGet("agestudent")]
+    public async ValueTask<ActionResult<UserDto>> GetUserByAgeStudent(
+        int age)
+    {
+
+        var user = this.userService
+            .RetriveUserByAgeStudent(age);
+
+        return Ok(user);
+    }
+    
+    [HttpGet("ageteacher")]
+    public async ValueTask<ActionResult<UserDto>> GetUserByAgeTeacher(
+        int age)
+    {
+
+        var user = this.userService
+            .RetriveUserByAgeTeacher(age);
 
         return Ok(user);
     }

@@ -12,6 +12,7 @@ namespace StudentSystem.Application.Service
         IQueryable<SSDto> RetriveBySubjectId(Guid subjectId);
         IQueryable<SSDto> RetriveByTeacherId(Guid teacherId);
         IQueryable<SSDto> RetriveBySTId(Guid stId);
+        IQueryable<SSDto> RetriveByMark(int mark);
 
         ValueTask<SubjectsOfStudents> ModifySSAsync(SSForModificationDto sSForModificationDto);
 

@@ -8,6 +8,8 @@ namespace StudentSystem.API
     {
         public static void Main(string[] args)
         {
+            int k = 4;
+            string asd = $"asdf {k}";
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services

@@ -1,10 +1,12 @@
 ﻿using FluentValidation;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using StudentSystem.Application.DTO;
 using StudentSystem.Application.Service;
+using StudentSystem.Application.Service.AuthenticationService;
 using StudentSystem.Application.Service.SubjectOfTeachers;
 using StudentSystem.Application.Service.Subjects;
 using StudentSystem.Application.Service.Users;
@@ -45,6 +47,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<ISubjectService, SubjectService>();
         services.AddScoped<ISTService, STService>();
         services.AddScoped<ISSService, SSService>();
+        services.AddScoped<IStudentSystemAuthenticationService, StudentSystemAuthenticationService>();
 
 
         services.AddTransient<ISubjectFactory, SubjectFactory>();

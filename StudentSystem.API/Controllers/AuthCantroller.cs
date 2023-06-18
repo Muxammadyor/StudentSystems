@@ -9,10 +9,10 @@ namespace StudentSystem.API.Controllers;
 [ApiController]
 public class AuthController : ControllerBase
 {
-    private readonly IReportAuthenticationService authenticationService;
+    private readonly IStudentSystemAuthenticationService authenticationService;
 
     public AuthController(
-        IReportAuthenticationService authenticationService)
+        IStudentSystemAuthenticationService authenticationService)
     {
         this.authenticationService = authenticationService;
     }

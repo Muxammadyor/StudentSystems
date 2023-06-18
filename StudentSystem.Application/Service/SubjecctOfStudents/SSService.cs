@@ -1,6 +1,5 @@
 ﻿using StudentSystem.Application.DTO;
 using StudentSystem.Application.DTO.SubjectsOfStudents;
-using StudentSystem.Application.DTO;
 using StudentSystem.Domain.Entities;
 using StudentSystem.Infrastructure.Repository;
 
@@ -38,11 +37,20 @@ namespace StudentSystem.Application.Service
             return await this.sSRepository.UpdateAsync(storageSS);
         }
 
+        public IQueryable<SSDto> RetriveByMark(int mark)
+        {
+            var storegeSt = this.sSRepository
+               .SelectAll(st => st.Mark >= mark,
+                   includes: new string[] { nameof(SubjectsOfStudents.Student) });
+
+            return storegeSt.Select(st => this.sSFactory.MapToSSDto(st));
+        }
+
         public IQueryable<SSDto> RetriveBySTId(Guid stId)
         {
             var storegeSt = this.sSRepository
-                .SelectAll(st => st.Id == stId,
-                    includes: new string[] { nameof(SubjectsOfStudents.SubjectsOfTeachers) });
+                .SelectAll(st => st.SubjectsOfTeachersId == stId,
+                    includes: new string[] { nameof(SubjectsOfStudents.Student) });
 
             return storegeSt.Select(st => this.sSFactory.MapToSSDto(st));
         }

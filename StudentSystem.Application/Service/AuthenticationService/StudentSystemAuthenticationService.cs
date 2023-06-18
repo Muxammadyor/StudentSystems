@@ -10,14 +10,14 @@ using StudentSystem.Infrastructure.Authentication;
 
 namespace StudentSystem.Application.Service.AuthenticationService;
 
-public class ReportAuthenticationService:IReportAuthenticationService
+public class StudentSystemAuthenticationService:IStudentSystemAuthenticationService
 {
     private readonly IUserRepository userRepository;
     private readonly IJwtTokenHandler jwtTokenHandler;
     private readonly IPasswordHasher passwordHasher;
     private readonly JwtOption jwtOptions;
 
-    public ReportAuthenticationService(
+    public StudentSystemAuthenticationService(
         IUserRepository userRepository,
         IJwtTokenHandler jwtTokenHandler,
         IPasswordHasher passwordHasher,

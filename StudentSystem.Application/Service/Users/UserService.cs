@@ -1,6 +1,7 @@
 ﻿using StudentSystem.Application.DTO;
 using StudentSystem.Domain.Enums;
 using StudentSystem.Infrastructure.Repository;
+using System.Data.SqlTypes;
 
 namespace StudentSystem.Application.Service.Users;
 
@@ -29,7 +30,7 @@ public partial class UserService : IUserService
         return this.userFactory.MapToUserDto(addedUser);
     }
 
-    public IQueryable<UserDto> RetriveUserBySubString(string subString)
+    public IQueryable<UserDto> RetriveUserBySubStringStudent(string subString)
     {
         var users = this.userRepository.SelectAll(user => 
         ((user.FirstName.Contains(subString) || user.LastName.Contains(subString))
@@ -75,5 +76,57 @@ public partial class UserService : IUserService
     public ValueTask<UserDto> ModifyUserAsync(UserForModificationDto userForModificationDto)
     {
         throw new NotImplementedException();
+    }
+
+    public IQueryable<UserDto> RetriveUserBySubStringTeacher(string subString)
+    {
+        var users = this.userRepository.SelectAll(user =>
+        ((user.FirstName.Contains(subString) || user.LastName.Contains(subString))
+        && user.Role == UserRole.Teacher));
+
+        return users.Select(user =>
+           this.userFactory.MapToUserDto(user));
+    }
+
+    public IQueryable<UserDto> RetriveUserByPhoneNumberTeacher(string phoneNumber)
+    {
+        var users = this.userRepository.SelectAll(user =>
+        ((user.PhoneNumber.Contains(phoneNumber) )
+        && user.Role == UserRole.Teacher));
+
+        return users.Select(user =>
+           this.userFactory.MapToUserDto(user));
+    }
+
+    public IQueryable<UserDto> RetriveUserByPhoneNumberStudent(string phoneNumber)
+    {
+        var users = this.userRepository.SelectAll(user =>
+        ((user.PhoneNumber.Contains(phoneNumber))
+        && user.Role == UserRole.Student));
+
+        return users.Select(user =>
+           this.userFactory.MapToUserDto(user));
+    }
+
+    public IQueryable<UserDto> RetriveUserByAgeStudent(int age)
+    {
+        var userAge = DateTime.Now.Year - age;
+        var users = this.userRepository.SelectAll(user =>
+        user.BirthDate.Year<=userAge
+        && user.Role == UserRole.Student);
+
+        return users.Select(user =>
+           this.userFactory.MapToUserDto(user));
+    }
+
+    public IQueryable<UserDto> RetriveUserByAgeTeacher(int age)
+    {
+        var userAge = DateTime.Now.Year - age;
+        var users = this.userRepository.SelectAll(user =>
+        user.BirthDate.Year <= userAge
+        && user.Role == UserRole.Teacher);
+
+        return users.Select(user =>
+           this.userFactory.MapToUserDto(user));
     }
 }

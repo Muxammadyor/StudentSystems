@@ -2,7 +2,7 @@
 
 namespace StudentSystem.Application.Service.AuthenticationService;
 
-public interface IReportAuthenticationService
+public interface IStudentSystemAuthenticationService
 {
     Task<TokenDto> LoginAsync(AuthenticationDto authenticationDto);
     Task<TokenDto> RefreshTokenAsync(RefreshTokenDto refreshTokenDto);
